@@ -11,7 +11,7 @@ date=''
 permalink=''
 commentIssueId=''
 
-ACCESS_TOKEN='1b50ce9a7fc027fa619276c86c4b4831c0a86b02'
+ACCESS_TOKEN='f9119cb2e5d882a6e6e4d1af9cb6aaf37fdb849a'
 
 deployAll() {
 	# deploy
@@ -60,17 +60,19 @@ createIssue() {
 	echo data: $data
 
 	# create a issue with title + link
-	commentId=$(curl --silent -H "Content-Type: application/json" -u wingjay:$ACCESS_TOKEN -X POST -d $data https://api.github.com/repos/wingjay/hellojava/issues | jq -r '.number')
+	apiResult=$(curl --silent -H "Content-Type: application/json" -u wingjay:$ACCESS_TOKEN -X POST -d $data https://api.github.com/repos/wingjay/wingjay.github.io/issues)
+	commentId=$(echo $apiResult| jq -r '.number')
 	if [[ $commentId == null ]]; then
-		echo "---------\nError: token失效了吧\n---------"
+		echo "---------\nError: 创建Issue失败\n---------"
+		echo $apiResult
 		exit 1
 	else 
 		return $commentId	
 	fi
 }
 
-# no input -> deploy
 if [ "$#" == 1 ]; then
+	# create issue for input articlePath
 	echo "---------\n为指定文章创建Issue后再deploy\n---------"
 	readFromMdFile
 	echo title: $title
@@ -97,6 +99,7 @@ if [ "$#" == 1 ]; then
 		deployAll
 	fi
 elif [[ "$#" == 0 ]]; then
+	# no input -> deploy
 	echo "---------\n直接deploy\n---------"
 	deployAll
 else
