@@ -12,5 +12,5 @@ https://stedolan.github.io/jq/tutorial/
 1. python virtual-env activate(python2/python3)
 
 ## Node js script
-1. install Node.js
+1. install Node.js: brew install node; node -v; brew install npm;
 2. node your.js
