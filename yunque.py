@@ -12,6 +12,8 @@ xiamiMobileGroupId = '24208'
 androidTitleFilter = ('android', u'安卓')
 iosTitleFilter = ('ios')
 
+f = open('index.md', 'w')
+
 def main(userName, password):
 	token = ''
 	print('go to login')
@@ -37,11 +39,15 @@ def main(userName, password):
 		else:
 			bothRepos.append(repo)
 	print('- [Android]()')
+	f.write('- [Android]()\n')
 	printRepoDocs(androidRepos)
 	print('- [iOS]()')
+	f.write('- [iOS]()\n')
 	printRepoDocs(iosRepos)
 	print('- [其他]()')
+	f.write('- [其他]()\n')
 	printRepoDocs(bothRepos)
+	f.close()
 
 
 def printRepoDocs(repos):
@@ -51,8 +57,12 @@ def printRepoDocs(repos):
 		if len(docs) <= 0:
 			continue
 		print('	- [' + repo['name'] + ']()')
+		str1 = '	- [' + repo['name'] + ']()\n'
+		f.write(str1.encode("UTF-8"))
 		for doc in docs:
 			print('		- [' + doc['title'] + '](' + repo['slug'] + '/' + doc['slug'] + ')')
+			str2 = '		- [' + doc['title'] + '](' + repo['slug'] + '/' + doc['slug'] + ')\n'
+			f.write(str2.encode("UTF-8"))
 
 
 
