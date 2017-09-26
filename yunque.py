@@ -6,7 +6,7 @@ import requests
 url = 'https://lark.alipay.com/api/v2'
 headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
-xiamiMobileGroupId = '24208'
+xiamiMobileGroupId = 'xiami-mobile'
 
 androidTitleFilter = ('android', u'安卓')
 iosTitleFilter = ('ios')
@@ -57,7 +57,7 @@ def printRepoDocs(repos):
 
 
 def getReposFromGroup(groupId):
-	rawRepos = requests.get(url + '/groups/' + str(groupId) + '/repos')
+	rawRepos = requests.get(url + '/groups/' + str(groupId) + '/repos', headers=headers)
 	return rawRepos.json()['data']
 
 
