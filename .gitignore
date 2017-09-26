@@ -1,2 +1,4 @@
+*.pyc
+
 index.md
 node_modules/

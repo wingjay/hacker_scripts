@@ -6,7 +6,6 @@ import requests
 url = 'https://lark.alipay.com/api/v2'
 headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
-xiamiRepoId = '35201'
 xiamiMobileGroupId = '24208'
 
 androidTitleFilter = ('android', u'安卓')
@@ -15,17 +14,9 @@ iosTitleFilter = ('ios')
 f = open('index.md', 'w')
 
 def main(userName, password):
-	token = ''
 	print('go to login')
-	token = login(userName, password)
-
-	if not token:
-		print('token empty, login fail')
-		exit()
-
-	headers.update({'X-Auth-Token': token})
-	rawRepos = requests.get(url + '/groups/' + xiamiMobileGroupId + '/repos')
-	repos = rawRepos.json()['data'] # repos of XiamiMobile group
+	login(userName, password)
+	repos = getReposFromGroup(xiamiMobileGroupId)
 
 	androidRepos = []
 	iosRepos = []
@@ -65,13 +56,27 @@ def printRepoDocs(repos):
 			f.write(str2.encode("UTF-8"))
 
 
+def getReposFromGroup(groupId):
+	rawRepos = requests.get(url + '/groups/' + str(groupId) + '/repos')
+	return rawRepos.json()['data']
+
+
+def getDocsFromRepo(repoId):
+	docs = requests.get(url + '/repos/' + str(repoId) + '/docs', headers=headers)
+	docs = docs.json()['data']
+	return docs
+
 
 def login(userName, password):
 	print('username: ' + userName + ", password: " + password)
 	payload = {'username': userName, 'password': password}
 	response = requests.post(url+'/authorize', data=payload, headers=headers)
 	jsonData = response.json()
-	return jsonData['data']['private_token']
+	token = jsonData['data']['private_token']
+	if not token:
+		print('token empty, login fail')
+		exit()
+	headers.update({'X-Auth-Token': token})
 
 
 if __name__ == '__main__':
