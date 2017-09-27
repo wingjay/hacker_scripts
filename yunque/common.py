@@ -35,5 +35,10 @@ def updateRepoIndex(repo_name_space, toc):
     print str(result.json()['data']['toc'].encode('UTF-8'))
 
 
+def getRepoToc(repo_name_space):
+    result = requests.get(url + '/repos/' + repo_name_space, headers=headers)
+    return str(result.json()['data']['toc'].encode('UTF-8'))
+
+
 def getDocString(repo_namespace, doc):
     return ('- [' + doc['title'] + '](' + repo_namespace + '/' + doc['slug'] + ')\n').encode("UTF-8")
