@@ -1,5 +1,6 @@
 .idea
 *.pyc
 
-index.md
+xiamiIndex.md
+wingjayIndex.md
 node_modules/
