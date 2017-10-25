@@ -54,6 +54,7 @@ def printRepoDocs(repos):
         docs = docs.json()['data']
         if len(docs) <= 0:
             continue
+        docs = sorted(docs, key=lambda d: d['updated_at'], reverse=True)
         str1 = '\t- [' + repo['name'] + ']()\n'
         f.write(str1.encode("UTF-8"))
         for doc in docs:
