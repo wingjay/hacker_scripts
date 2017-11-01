@@ -1,6 +1,9 @@
 # Install
 `npm i puppeteer`
 
+# Run js
+`node test.js`
+
 # Feature
 puppeteer supports:
   - generate PDF/Screenshots of website; 
