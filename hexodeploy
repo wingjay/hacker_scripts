@@ -1,4 +1,8 @@
 #!/bin/sh
+# hexodeploy (without creating issue)
+# hexodeploy ~/Documents/../xxx.md (creating comment issue for md)
+
+
 # 1. input article file path
 # 2. create a new issue, including article title and link
 # 3. deploy hexo
@@ -11,7 +15,7 @@ date=''
 permalink=''
 commentIssueId=''
 
-ACCESS_TOKEN='f9119cb2e5d882a6e6e4d1af9cb6aaf37fdb849a'
+ACCESS_TOKEN='a20c8c6002eb33ee144f32a1fd9e1659f1f75f7c'
 
 deployAll() {
 	# deploy
