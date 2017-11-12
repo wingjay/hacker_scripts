@@ -1,4 +1,5 @@
 // node jianshu.js ## ##
+// puppeteer version:0.10.1
 
 const puppeteer = require('puppeteer');
 
