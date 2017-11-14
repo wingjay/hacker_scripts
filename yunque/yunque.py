@@ -39,7 +39,7 @@ def main(user_name, password):
     printRepoDocs(android_repos)
     f.write('- [iOS]()\n')
     printRepoDocs(ios_repos)
-    f.write('- [其他]()\n')
+    f.write('- [客户端公共]()\n')
     printRepoDocs(both_repos)
     f.close()
     print('generated index in' + fileName)
