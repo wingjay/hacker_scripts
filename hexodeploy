@@ -15,7 +15,7 @@ date=''
 permalink=''
 commentIssueId=''
 
-ACCESS_TOKEN='a20c8c6002eb33ee144f32a1fd9e1659f1f75f7c'
+ACCESS_TOKEN='f70e046019bbf4d4c1ad76f177ea5706663b77f9'
 
 deployAll() {
 	# deploy
