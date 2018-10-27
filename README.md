@@ -14,4 +14,9 @@ https://stedolan.github.io/jq/tutorial/
 
 ## Run Node js script
 1. install Node.js: `brew install node; node -v; brew install npm;`
-2. `node your.js`
+2. install puppeteer
+```
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm i puppeteer
+```
+3. `node your.js`
