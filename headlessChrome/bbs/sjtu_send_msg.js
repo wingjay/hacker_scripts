@@ -2,8 +2,8 @@
 // 发信息
 
 // 1. 填写用户名密码
-var userName = 'wingjay';
-var password = 'yinjie123123';
+var userName = '';
+var password = '';
 
 const lineByLine = require('./utils/readlines.js');
 
@@ -38,7 +38,7 @@ var page;
 	// login
 	await login(loginUrl)
 
-	var count = 20;
+	var count = 3;
 	for(var item of targetUserId) {
 		if (count <= 0) {
 			break;
@@ -47,7 +47,7 @@ var page;
 		await send(item);
 	}
 
-	// browser.close()
+	browser.close()
 })();
 
 async function prepare() {
@@ -86,7 +86,7 @@ async function send(userId) {
 
 	fs.appendFileSync('used_list.txt', userId + '\n');
 	await page.click('input[type=submit]')
-	sleep(1000)
+	await sleep(1500)
 }
 
 async function login(url) {

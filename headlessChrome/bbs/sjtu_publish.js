@@ -76,11 +76,11 @@ async function publish(name, url) {
 	    waitUntil: 'networkidle2', // 等待网络状态为空闲的时候才继续执行
 	});
 	await page.type('#inputCH', title, {delay: 10});
-	await page.type('#text', content, {delay: 100});
+	await page.type('#text', content, {delay: 20});
 	const submit = await page.$('input[type=submit]');
 	await submit.click()
 	await page.mainFrame().waitForSelector('.title');
-	await sleep(5000)
+	await sleep(2000)
 	console.log('finish')
 }
 
