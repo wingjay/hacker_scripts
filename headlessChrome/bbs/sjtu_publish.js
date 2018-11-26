@@ -14,13 +14,13 @@ const loginUrl = 'https://bbs.sjtu.edu.cn';
 const boardsUrl = new Map([
 	['求职交流', 'https://bbs.sjtu.edu.cn/bbspst?board=JobForum'],
 	['就业信息', 'https://bbs.sjtu.edu.cn/bbspst?board=JobInfo'],
-	['IT职场', 'https://bbs.sjtu.edu.cn/bbspst?board=ITCareer'],
+	// ['IT职场', 'https://bbs.sjtu.edu.cn/bbspst?board=ITCareer'],
 	['交大快讯', 'https://bbs.sjtu.edu.cn/bbspst?board=SJTUNews'],
 	['勤工助学', 'https://bbs.sjtu.edu.cn/bbspst?board=PartTime'],
-	['移动开发者', 'https://bbs.sjtu.edu.cn/bbspst?board=MobileDev'],
-	['人工智能', 'https://bbs.sjtu.edu.cn/bbspst?board=AI'],
-	['研究之家', 'https://bbs.sjtu.edu.cn/bbspst?board=Graduate'],
-	['计算机系', 'https://bbs.sjtu.edu.cn/bbspst?board=CS']
+	// ['移动开发者', 'https://bbs.sjtu.edu.cn/bbspst?board=MobileDev'],
+	// ['人工智能', 'https://bbs.sjtu.edu.cn/bbspst?board=AI'],
+	// ['研究之家', 'https://bbs.sjtu.edu.cn/bbspst?board=Graduate'],
+	// ['计算机系', 'https://bbs.sjtu.edu.cn/bbspst?board=CS']
 ]);
 
 const title = '【上交校友兼职求职群】欢迎校友及企业入群';
